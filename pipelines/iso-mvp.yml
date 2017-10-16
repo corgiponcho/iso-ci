@@ -1,0 +1,28 @@
+---
+# -------------------------------
+resources:
+# -------------------------------
+- name: iso-repo
+  type: git
+  source:
+    uri: git@github.com:corgiponcho/iso.git
+    branch: master
+    private_key: ((corgi-poncho-bot-private-key))
+
+- name: task-docker-image
+  type: docker-image
+  source:
+    repository: corgiponcho/iso
+    tag: "1.0"
+    username: ((docker_hub_username))
+    password: ((docker_hub_password))
+
+# -------------------------------
+jobs:
+# -------------------------------
+- name: unit-test
+  plan:
+  - get: iso-repo
+    trigger: true
+  - task: run-unit-test
+    file: iso-ci/tasks/run-unit-test.yml
