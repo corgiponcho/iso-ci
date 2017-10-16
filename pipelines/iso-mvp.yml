@@ -2,10 +2,17 @@
 # -------------------------------
 resources:
 # -------------------------------
-- name: iso-repo
+- name: iso
   type: git
   source:
     uri: git@github.com:corgiponcho/iso.git
+    branch: master
+    private_key: ((corgi-poncho-bot-private-key))
+
+- name: iso-ci
+  type: git
+  source:
+    uri: git@github.com:corgiponcho/iso-ci.git
     branch: master
     private_key: ((corgi-poncho-bot-private-key))
 
@@ -22,7 +29,10 @@ jobs:
 # -------------------------------
 - name: unit-test
   plan:
-  - get: iso-repo
+  - get: iso
     trigger: true
+  - get: iso-ci
+  - get: task-docker-image
   - task: run-unit-test
     file: iso-ci/tasks/run-unit-test.yml
+    image: task-docker-image
