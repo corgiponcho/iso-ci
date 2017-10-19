@@ -6,4 +6,4 @@ export ROOT_DIR=$(pwd)
 
 cd ${ROOT_DIR}/iso
 npm install
-npm test
+npm run test:mocha

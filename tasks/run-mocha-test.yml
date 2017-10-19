@@ -10,4 +10,4 @@ outputs:
 params:
 
 run:
-  path: iso-ci/scripts/run-unit-test
+  path: iso-ci/scripts/run-mocha-test

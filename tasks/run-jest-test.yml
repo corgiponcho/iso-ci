@@ -1,0 +1,13 @@
+---
+platform: linux
+
+inputs:
+- name: iso
+- name: iso-ci
+
+outputs:
+
+params:
+
+run:
+  path: iso-ci/scripts/run-jest-test

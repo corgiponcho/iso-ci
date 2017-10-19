@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -xeu
+
+export ROOT_DIR=$(pwd)
+
+cd ${ROOT_DIR}/iso
+npm install
+npm run test:jest

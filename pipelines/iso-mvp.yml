@@ -1,4 +1,7 @@
 ---
+
+task-docker-image: &task-docker-image "task-docker-image"
+
 # -------------------------------
 resources:
 # -------------------------------
@@ -33,6 +36,9 @@ jobs:
     trigger: true
   - get: iso-ci
   - get: task-docker-image
-  - task: run-unit-test
-    file: iso-ci/tasks/run-unit-test.yml
-    image: task-docker-image
+  - task: run-jest-tests
+    file: iso-ci/tasks/run-jest-test.yml
+    image: *task-docker-image
+  - task: run-mocha-tests
+    file: iso-ci/tasks/run-mocha-test.yml
+    image: *task-docker-image  
