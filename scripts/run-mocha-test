@@ -6,11 +6,9 @@ export ROOT_DIR=$(pwd)
 
 cd ${ROOT_DIR}/iso
 
-npm install
-
 /etc/init.d/postgresql start
 
-psql -U postgres -c "CREATE DATABASE iso_dev"
+psql -U postgres -c "CREATE DATABASE iso_test"
 
 node server/index.js
 
