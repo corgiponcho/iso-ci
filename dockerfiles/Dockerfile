@@ -14,7 +14,9 @@ RUN apt-get install -y postgresql postgresql-contrib
 RUN sed -i 's/peer/trust/' /etc/postgresql/9.5/main/pg_hba.conf && \
     sed -i 's/md5/trust/' /etc/postgresql/9.5/main/pg_hba.conf
 
-RUN npm install --no-save \
+RUN apt-get install -y vim
+
+RUN npm install -g --no-save \
     autoprefixer-loader \
     babel-core \
     babel-eslint \
