@@ -10,7 +10,7 @@ cd ${ROOT_DIR}/iso
 
 psql -U postgres -c "CREATE DATABASE iso_test"
 
-node server/index.js
-
 npm install
+
+node server/index.js
 npm run test:mocha

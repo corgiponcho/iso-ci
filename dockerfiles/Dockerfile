@@ -15,34 +15,3 @@ RUN sed -i 's/peer/trust/' /etc/postgresql/9.5/main/pg_hba.conf && \
     sed -i 's/md5/trust/' /etc/postgresql/9.5/main/pg_hba.conf
 
 RUN apt-get install -y vim
-
-RUN npm install -g --no-save \
-    autoprefixer-loader \
-    babel-core \
-    babel-eslint \
-    babel-jest \
-    babel-loader \
-    babel-polyfill \
-    babel-preset-es2015 \
-    babel-preset-react \
-    body-parser \
-    chai \
-    chai-http \
-    css-loader \
-    dotenv \
-    jest \
-    less \
-    less-loader \
-    logger \
-    mocha \
-    nodemon \
-    prop-types \
-    react \
-    react-dom \
-    react-router-dom \
-    react-test-renderer \
-    sequelize \
-    sequelize-cli \
-    style-loader \
-    webpack \
-    webpack-dev-server
