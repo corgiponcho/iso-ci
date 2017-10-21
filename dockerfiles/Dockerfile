@@ -6,7 +6,7 @@ RUN apt-get install -y curl
 
 # install node and npm
 RUN cd ~ && curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh && \
-    bash nodesource_setup.sh && apt-get install -y nodejs
+    bash nodesource_setup.sh && apt-get install -y nodejs && npm i -g npm
 # install build-essential for packages that need to be compiledfrom source
 RUN apt-get install -y build-essential
 # install postgres and set its config file

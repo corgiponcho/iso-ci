@@ -30,7 +30,7 @@ resources:
 # -------------------------------
 jobs:
 # -------------------------------
-- name: unit-test
+- name: run-jest-tests
   plan:
   - get: iso
     trigger: true
@@ -39,6 +39,15 @@ jobs:
   - task: run-jest-tests
     file: iso-ci/tasks/run-jest-test.yml
     image: *task-docker-image
+
+- name: run-mocha-tests
+  plan:
+  - get: iso
+    trigger: true
+  - get: iso-ci
+  - get: task-docker-image
   - task: run-mocha-tests
     file: iso-ci/tasks/run-mocha-test.yml
-    image: *task-docker-image  
+    image: *task-docker-image
+    params:
+      NODE_ENV: test
