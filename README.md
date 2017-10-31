@@ -30,6 +30,11 @@ Note that you will get a 403 when first using the api. Just click on the link pr
 
 After running the `bbl up` command, a bbl state file is generated. For security purposes the file is saved in the gcp storage.
 
+Run the following command to get environment variables to call bosh commands:
+```
+eval "$(bbl print-env)"
+```
+
 3. deploying concourse
 
 Follow the instruction [here](https://github.com/cloudfoundry/bosh-bootloader/blob/master/docs/concourse-gcp.md).
@@ -56,4 +61,14 @@ See the [concourse documentation](https://concourse.ci/fly-login.html) for detai
 set pipelines
 ```
 fly -t corgiponcho sp -p {PIPELINE_NAME} -c pipelines/{PIPELINE_CONFIG_YML} -l credentials.yml
+```
+
+4. delete concourse deployment
+```
+bosh -d concourse delete-deployment
+```
+
+5. bbl destroy the director
+```
+bbl destroy
 ```
